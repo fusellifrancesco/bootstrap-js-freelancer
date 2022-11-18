@@ -27,12 +27,12 @@ function submitForm(event){
     }
 
     if (!codicePresenteInArray){
-        document.getElementById("output-1").innerHTML += "CODICE SCONTO NON VALIDO";
-        document.getElementById("output-2").innerHTML += "PREZZO NON SCONTATO: " +
+        document.getElementById("output-1").innerHTML = "CODICE SCONTO NON VALIDO";
+        document.getElementById("output-2").innerHTML = "PREZZO NON SCONTATO: " +
         prezzoTotale(prezzoLavoro,oreRichieste) + "€";
     } else {
-        document.getElementById("output-1").innerHTML += "CODICE SCONTO VALIDO 25%";
-        document.getElementById("output-2").innerHTML += "PREZZO SCONTATO: " + 
+        document.getElementById("output-1").innerHTML = "CODICE SCONTO VALIDO 25%";
+        document.getElementById("output-2").innerHTML = "PREZZO SCONTATO: " + 
         prezzoSconto(arrayCodiceSconto,inputCodiceSconto,(prezzoTotale(prezzoLavoro,oreRichieste))) + "€";
     }
 }
