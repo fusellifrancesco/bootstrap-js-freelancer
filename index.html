@@ -123,11 +123,16 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <label for="inputHoursrequested" class="form-label">Hours requested</label>
-                    <input type="text" class="form-control" id="inputHoursrequested">
+                    <input type="number" class="form-control" id="inputHoursrequested">
                 </div>
                 <div class="col-12 col-md-6">
                     <label for="inputTypeofwork" class="form-label">Type of work</label>
-                    <input type="text" class="form-control" id="inputTypeofwork">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Choose the type of work</option>
+                        <option value="1">Backend Development</option>
+                        <option value="2">Frontend Development</option>
+                        <option value="3">Project Analysis</option>
+                      </select>
                 </div>
                 <div class="col-12 col-md-6">
                     <label for="inputCity" class="form-label">Discount Code</label>
