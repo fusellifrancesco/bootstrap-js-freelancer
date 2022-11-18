@@ -106,7 +106,7 @@
 
         <!-- FORM -->
 
-        <form class="bg-info p-5">
+        <form onsubmit="submitForm(event)" class="bg-info p-5">
             <div class="row">
                 <h2 class="text-center">WANT AN OFFER?</h2>
                 <div class="col-12 col-md-6">
@@ -123,12 +123,11 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <label for="inputHoursrequested" class="form-label">Hours requested</label>
-                    <input type="number" class="form-control" id="inputHoursrequested">
+                    <input type="number" class="form-control" id="ore-richieste">
                 </div>
                 <div class="col-12 col-md-6">
                     <label for="inputTypeofwork" class="form-label">Type of work</label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Choose the type of work</option>
+                    <select id="tipo-lavoro" class="form-select" aria-label="Default select example">
                         <option value="1">Backend Development</option>
                         <option value="2">Frontend Development</option>
                         <option value="3">Project Analysis</option>
@@ -136,7 +135,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <label for="inputCity" class="form-label">Discount Code</label>
-                    <input type="text" class="form-control" id="inputCity">
+                    <input type="text" class="form-control" id="codice-sconto">
                 </div>
                 <div class="col-12">
                     <label for="inputMessage" class="form-label">Message</label>
@@ -147,7 +146,8 @@
                 <div class="col p-5 pb-3 text-center">
                     <button type="submit" class="btn btn-warning">Send</button>
                 </div>
-                <h2>Il prezzo finale è di: 153,74€</h2>
+                <h2 id="output-1"></h2>
+                <h2 id="output-2"></h2>
             </div>
         </form>
     </main>
