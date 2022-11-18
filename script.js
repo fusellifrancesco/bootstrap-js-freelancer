@@ -15,21 +15,26 @@ function submitForm(event){
 
     let arrayCodiceSconto = ["YHDNU32","JANJC63","PWKCN25","SJDPO96","POCIE24"];
     let inputCodiceSconto = document.getElementById("codice-sconto").value;
-        
+    let codicePresenteInArray = false;
+
     for (let i = 0; i < arrayCodiceSconto.length; i++){
-        if (inputCodiceSconto != arrayCodiceSconto[i]){
-            document.getElementById("output-1").innerHTML += "CODICE SCONTO NON VALIDO";
-            document.getElementById("output-2").innerHTML += "PREZZO NON SCONTATO: " +
-            prezzoTotale(prezzoLavoro,oreRichieste);
-            console.log(inputCodiceSconto);
+        if (inputCodiceSconto == arrayCodiceSconto[i]){
+            codicePresenteInArray = true;
             break;
-        } else if (inputCodiceSconto == arrayCodiceSconto[i]){
-            document.getElementById("output-1").innerHTML += "CODICE SCONTO VALIDO 25%";
-            document.getElementById("output-2").innerHTML += "PREZZO SCONTATO: " + 
-            prezzoSconto(arrayCodiceSconto,inputCodiceSconto,(prezzoTotale(prezzoLavoro,oreRichieste)));
-            break;
+        } else {
+            codicePresenteInArray = false;
         } 
-    } 
+    }
+
+    if (!codicePresenteInArray){
+        document.getElementById("output-1").innerHTML += "CODICE SCONTO NON VALIDO";
+        document.getElementById("output-2").innerHTML += "PREZZO NON SCONTATO: " +
+        prezzoTotale(prezzoLavoro,oreRichieste) + "€";
+    } else {
+        document.getElementById("output-1").innerHTML += "CODICE SCONTO VALIDO 25%";
+        document.getElementById("output-2").innerHTML += "PREZZO SCONTATO: " + 
+        prezzoSconto(arrayCodiceSconto,inputCodiceSconto,(prezzoTotale(prezzoLavoro,oreRichieste))) + "€";
+    }
 }
 
 
@@ -38,14 +43,14 @@ function prezzoSconto(array,codiceScontoInserito,risultato){
         if (codiceScontoInserito == array[i]){
             let percentuale = risultato * 0.25;
             let sconto = risultato - percentuale;
-            return sconto;
+            return sconto.toFixed(2);
         }       
     }
 }
 
 function prezzoTotale(prezzo,ore){
     let risultato = prezzo * ore;
-    return risultato;
+    return risultato.toFixed(2);
 }
 
 /*
